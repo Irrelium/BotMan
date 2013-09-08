@@ -1,0 +1,13 @@
+# Eclipse Things
+/.classpath
+/.project
+/.settings
+
+# Compiled Things
+*.class
+*.jar
+/bin
+/target
+
+# Misc
+dependency-reduced-pom.xml
