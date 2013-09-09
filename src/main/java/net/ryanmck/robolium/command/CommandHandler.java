@@ -28,7 +28,7 @@ public class CommandHandler extends ListenerAdapter {
         String[] args;
         String sender;
 
-        if (event.getMessage().startsWith(commandPrefix)) {
+        if (event.getMessage().startsWith(commandPrefix) || event.getMessage().startsWith(Robolium.getBot().getNick())) {
             command = parseCommand(event.getMessage());
             args = parseArgs(event.getMessage());
             sender = event.getUser().getNick();
@@ -40,17 +40,26 @@ public class CommandHandler extends ListenerAdapter {
     } // end onMessage
 
     String parseCommand(String message) {
-        return message.split(" ")[0].substring(1);
+        if (message.startsWith(commandPrefix)) {
+            return message.split(" ")[0].substring(1);
+        } // end if
+        return message.split(" ")[1];
     } // end parsecommand
 
     String[] parseArgs(String message) {
         String[] split = message.split(" ");
-        String[] args = new String[split.length - 1];
-        int x = 0;
-        for (int i = 1; i < split.length; i++) {
-            args[x] = split[i];
-            x++;
-        } // end for
+        String[] args;
+        if (message.startsWith(commandPrefix)) {
+            args = new String[split.length - 1];
+            for (int x = 0, i = 1; x < split.length - 1; x++, i++) {
+                args[x] = split[i];
+            } // end for
+        } else {
+            args = new String[split.length - 2];
+            for (int x = 0, i = 2; x < split.length - 2; x++, i++) {
+                args[x] = split[i];
+            } // end for
+        } // end if/else
         return args;
     } // end parseArgs
 } // end class
