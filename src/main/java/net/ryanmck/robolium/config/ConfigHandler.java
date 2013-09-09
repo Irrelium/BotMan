@@ -8,6 +8,7 @@ public class ConfigHandler {
     private String user;
     private String server;
     private String channel;
+    private String commandPrefix;
     private Properties properties;
 
     public ConfigHandler() throws Exception {
@@ -20,6 +21,7 @@ public class ConfigHandler {
         user = properties.getProperty("user");
         server = properties.getProperty("server");
         channel = properties.getProperty("channel");
+        commandPrefix = properties.getProperty("command_prefix");
     } // end readConfig
 
     public String getNick() {
@@ -37,4 +39,8 @@ public class ConfigHandler {
     public String getChannel() {
         return channel;
     } // end getChannel
+
+    public String getCommandPrefix() {
+        return commandPrefix;
+    } // end getCommandPrefix
 } // end class
