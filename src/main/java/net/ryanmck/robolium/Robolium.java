@@ -36,7 +36,7 @@ public class Robolium {
         bot.setLogin("Robolium");
         bot.setVerbose(true);
         try {
-            bot.connect(configHandler.getNetwork());
+            bot.connect(configHandler.getServer());
         } catch (IrcException ex) {
             System.out.println("[ERROR] Could not join server");
             ex.printStackTrace();
