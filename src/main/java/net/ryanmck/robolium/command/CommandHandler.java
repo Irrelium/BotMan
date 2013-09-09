@@ -1,7 +1,9 @@
 package net.ryanmck.robolium.command;
 
+import net.ryanmck.robolium.Robolium;
 import net.ryanmck.robolium.listener.CommandListener;
 import net.ryanmck.robolium.event.CommandEvent;
+import net.ryanmck.robolium.config.ConfigHandler;
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.Event;
 import org.pircbotx.hooks.ListenerAdapter;
@@ -14,7 +16,7 @@ public class CommandHandler extends ListenerAdapter {
     ArrayList<CommandListener> listeners = new ArrayList<CommandListener>();
 
     public CommandHandler() {
-        commandPrefix = "!";
+        commandPrefix = Robolium.getConfigHandler().getCommandPrefix();
     } // end constructor
 
     public void addCommandListener(CommandListener cl) {
