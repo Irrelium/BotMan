@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 
 public class ConfigHandler {
     private String nick;
+    private String user;
     private String server;
     private String channel;
     private Properties properties;
@@ -16,6 +17,7 @@ public class ConfigHandler {
 
     public void readConfig() throws Exception {
         nick = properties.getProperty("nick");
+        user = properties.getProperty("user");
         server = properties.getProperty("server");
         channel = properties.getProperty("channel");
     } // end readConfig
@@ -23,6 +25,10 @@ public class ConfigHandler {
     public String getNick() {
         return nick;
     } // end getNick
+
+    public String getUser() {
+        return user;
+    } // end getUser
 
     public String getServer() {
         return server;

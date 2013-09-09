@@ -33,7 +33,7 @@ public class Robolium {
         bot.getListenerManager().addListener(commandHandler);
 
         bot.setName(configHandler.getNick());
-        bot.setLogin("Robolium");
+        bot.setLogin(configHandler.getUser());
         bot.setVerbose(true);
         try {
             bot.connect(configHandler.getServer());
