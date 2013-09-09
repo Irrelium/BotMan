@@ -9,17 +9,17 @@ public class CommandEvent {
         this.command = command;
         this.args = args;
         this.sender = sender;
-    } //end constructor
+    } // end constructor
 
     public String getCommand() {
         return command;
-    } //end getCommand
+    } // end getCommand
 
     public String[] getArgs() {
         return args;
-    } //end getArgs
+    } // end getArgs
 
     public String getSender() {
         return sender;
-    } //end getSender
-} //end class
+    } // end getSender
+} // end class

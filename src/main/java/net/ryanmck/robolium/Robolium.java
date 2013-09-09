@@ -14,11 +14,11 @@ public class Robolium {
 
     public static PircBotX getBot() {
         return bot;
-    } //end getBot
+    } // end getBot
 
     public static CommandHandler getCommandHandler() {
         return commandHandler;
-    } //end getCommandHandler
+    } // end getCommandHandler
 
     public static ConfigHandler getConfigHandler() {
         return configHandler;
@@ -43,7 +43,7 @@ public class Robolium {
         } catch (IOException ex) {
             System.out.println("[ERROR] Server could not be found");
             ex.printStackTrace();
-        } //end try/catch
+        } // end try/catch
         bot.joinChannel(configHandler.getChannel());
-    } //end main
-} //end class
+    } // end main
+} // end class

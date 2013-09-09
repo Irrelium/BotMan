@@ -15,11 +15,11 @@ public class CommandHandler extends ListenerAdapter {
 
     public CommandHandler() {
         commandPrefix = "!";
-    } //end constructor
+    } // end constructor
 
     public void addCommandListener(CommandListener cl) {
         listeners.add(cl);
-    } //end addCommandListener
+    } // end addCommandListener
 
     public void onMessage(MessageEvent event) {
         String command;
@@ -33,13 +33,13 @@ public class CommandHandler extends ListenerAdapter {
 
             for (CommandListener cl : listeners) {
                 cl.onCommand(new CommandEvent(command, args, sender));
-            }
-        } //end if
-    } //end onMessage
+            } // end for
+        } // end if
+    } // end onMessage
 
     String parseCommand(String message) {
         return message.split(" ")[0].substring(1);
-    } //end parsecommand
+    } // end parsecommand
 
     String[] parseArgs(String message) {
         String[] split = message.split(" ");
@@ -48,7 +48,7 @@ public class CommandHandler extends ListenerAdapter {
         for (int i = 1; i < split.length; i++) {
             args[x] = split[i];
             x++;
-        } //end for
+        } // end for
         return args;
-    } //end parseArgs
-} //end class
+    } // end parseArgs
+} // end class

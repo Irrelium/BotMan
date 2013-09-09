@@ -11,6 +11,6 @@ public abstract class Plugin {
 
     public PircBotX getBot() {
         return Robolium.getBot();
-    } //end getBot
+    } // end getBot
 
-} //end class
+} // end class
