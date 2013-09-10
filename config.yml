@@ -1,0 +1,7 @@
+nick: 'Robolium'
+user: 'Robolium'
+server: 'irc.quakenet.org'
+channels:
+  - '#mindcrack'
+  - '#eruspam'
+command_prefix: '!'

@@ -34,13 +34,13 @@ public class CommandHandler extends ListenerAdapter {
 
 // This is some testing code just to make sure everything works properly with command parsing
 
-//            String argsString = null;
-//            for (String arg : args) {
-//                if (argsString == null) argsString = arg;
-//                else argsString = argsString + " " + arg;
-//            }
-//            if (argsString == null) argsString = "none";
-//            Robolium.getBot().sendMessage(event.getChannel(), "Command \"" + command + "\" run by " + sender + ". Args: " + argsString);
+            String argsString = null;
+            for (String arg : args) {
+                if (argsString == null) argsString = arg;
+                else argsString = argsString + " " + arg;
+            }
+            if (argsString == null) argsString = "none";
+            Robolium.getBot().sendMessage(event.getChannel(), "Command \"" + command + "\" run by " + event.getUser().getHostmask() + ". Args: " + argsString);
 
             for (CommandListener cl : listeners) {
                 cl.onCommand(new CommandEvent(command, args, sender));
