@@ -40,7 +40,7 @@ public class Robolium {
 
         bot.setName(configHandler.getNick());
         bot.setLogin(configHandler.getUser());
-        bot.setVerbose(true);
+        bot.setVerbose(configHandler.getVerbose());
         try {
             bot.connect(configHandler.getServer());
         } catch (IrcException e) {

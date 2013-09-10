@@ -14,6 +14,7 @@ public class ConfigHandler {
     private String user;
     private String server;
     private List<String> channels;
+    private boolean verbose;
     private String commandPrefix;
 
     public ConfigHandler(boolean resetConfig) {
@@ -33,6 +34,7 @@ public class ConfigHandler {
         user = (String) map.get("user");
         server = (String) map.get("server");
         channels = (List<String>) map.get("channels");
+        verbose = (Boolean) map.get("verbose");
         commandPrefix = (String) map.get("command_prefix");
     } // end readConfig
 
@@ -54,6 +56,10 @@ public class ConfigHandler {
     public List<String> getChannels() {
         return channels;
     } // end getChannel
+
+    public boolean getVerbose() {
+        return verbose;
+    } // end getVerbose
 
     public String getCommandPrefix() {
         return commandPrefix;
