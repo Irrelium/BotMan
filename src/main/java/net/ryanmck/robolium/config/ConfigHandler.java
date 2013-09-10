@@ -3,9 +3,9 @@ package net.ryanmck.robolium.config;
 import org.yaml.snakeyaml.Yaml;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ConfigHandler {
     private Yaml yaml;

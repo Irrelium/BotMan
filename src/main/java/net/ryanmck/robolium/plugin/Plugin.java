@@ -1,7 +1,7 @@
 package net.ryanmck.robolium.plugin;
 
-import org.pircbotx.PircBotX;
 import net.ryanmck.robolium.Robolium;
+import org.pircbotx.PircBotX;
 
 public abstract class Plugin {
 

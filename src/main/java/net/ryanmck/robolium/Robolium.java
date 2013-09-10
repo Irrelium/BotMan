@@ -2,11 +2,9 @@ package net.ryanmck.robolium;
 
 import net.ryanmck.robolium.command.CommandHandler;
 import net.ryanmck.robolium.config.ConfigHandler;
-import org.pircbotx.PircBotX;
 import org.pircbotx.exception.IrcException;
-import org.pircbotx.exception.NickAlreadyInUseException;
-import java.io.*;
-import java.util.List;
+import org.pircbotx.PircBotX;
+import java.io.IOException;
 
 public class Robolium {
     private static PircBotX bot;

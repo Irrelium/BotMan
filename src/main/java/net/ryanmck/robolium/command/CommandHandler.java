@@ -1,14 +1,13 @@
 package net.ryanmck.robolium.command;
 
-import net.ryanmck.robolium.Robolium;
-import net.ryanmck.robolium.listener.CommandListener;
-import net.ryanmck.robolium.event.CommandEvent;
 import net.ryanmck.robolium.config.ConfigHandler;
-import org.pircbotx.PircBotX;
+import net.ryanmck.robolium.event.CommandEvent;
+import net.ryanmck.robolium.listener.CommandListener;
+import net.ryanmck.robolium.Robolium;
 import org.pircbotx.hooks.Event;
-import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.MessageEvent;
-import org.pircbotx.hooks.managers.ListenerManager;
+import org.pircbotx.hooks.ListenerAdapter;
+import org.pircbotx.PircBotX;
 import java.util.ArrayList;
 
 public class CommandHandler extends ListenerAdapter {
