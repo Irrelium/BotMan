@@ -25,9 +25,15 @@ public class Robolium {
         return configHandler;
     } // end getConfigHandler
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
+        boolean resetConfig = false;
+
+        for (String arg : args) {
+            if (arg == "--reset-config") resetConfig = true;
+        } // end for
+
         bot = new PircBotX();
-        configHandler = new ConfigHandler();
+        configHandler = new ConfigHandler(resetConfig);
         commandHandler = new CommandHandler();
 
         bot.getListenerManager().addListener(commandHandler);
@@ -37,12 +43,10 @@ public class Robolium {
         bot.setVerbose(true);
         try {
             bot.connect(configHandler.getServer());
-        } catch (IrcException ex) {
-            System.out.println("[ERROR] Could not join server");
-            ex.printStackTrace();
-        } catch (IOException ex) {
-            System.out.println("[ERROR] Server could not be found");
-            ex.printStackTrace();
+        } catch (IrcException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         } // end try/catch
         for (String channel : configHandler.getChannels()) {
             bot.joinChannel(channel);

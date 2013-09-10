@@ -2,7 +2,9 @@ package net.ryanmck.robolium.config;
 
 import org.yaml.snakeyaml.Yaml;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
 
 public class ConfigHandler {
@@ -14,19 +16,28 @@ public class ConfigHandler {
     private List<String> channels;
     private String commandPrefix;
 
-    public ConfigHandler() throws Exception {
+    public ConfigHandler(boolean resetConfig) {
         yaml = new Yaml();
+        if (resetConfig) resetConfig();
         readConfig();
     } // end constructor
 
-    public void readConfig() throws Exception {
-        Map<String, Object> map = (Map<String, Object>) yaml.load(new FileInputStream("config.yml"));
+    public void readConfig() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        try {
+            map = (Map<String, Object>) yaml.load(new FileInputStream("config.yml"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         nick = (String) map.get("nick");
         user = (String) map.get("user");
         server = (String) map.get("server");
         channels = (List<String>) map.get("channels");
         commandPrefix = (String) map.get("command_prefix");
     } // end readConfig
+
+    public void resetConfig() {
+    } // end resetConfig
 
     public String getNick() {
         return nick;
