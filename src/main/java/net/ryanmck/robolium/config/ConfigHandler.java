@@ -3,14 +3,16 @@ package net.ryanmck.robolium.config;
 import org.yaml.snakeyaml.Yaml;
 import java.io.FileInputStream;
 import java.util.Map;
+import java.util.List;
 
 public class ConfigHandler {
+    private Yaml yaml;
+
     private String nick;
     private String user;
     private String server;
-    private String channel;
+    private List<String> channels;
     private String commandPrefix;
-    private Yaml yaml;
 
     public ConfigHandler() throws Exception {
         yaml = new Yaml();
@@ -22,7 +24,7 @@ public class ConfigHandler {
         nick = (String) map.get("nick");
         user = (String) map.get("user");
         server = (String) map.get("server");
-        channel = (String) map.get("channel");
+        channels = (List<String>) map.get("channels");
         commandPrefix = (String) map.get("command_prefix");
     } // end readConfig
 
@@ -38,8 +40,8 @@ public class ConfigHandler {
         return server;
     } // end getServer
 
-    public String getChannel() {
-        return channel;
+    public List<String> getChannels() {
+        return channels;
     } // end getChannel
 
     public String getCommandPrefix() {

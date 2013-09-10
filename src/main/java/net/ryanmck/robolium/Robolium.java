@@ -6,6 +6,7 @@ import org.pircbotx.PircBotX;
 import org.pircbotx.exception.IrcException;
 import org.pircbotx.exception.NickAlreadyInUseException;
 import java.io.*;
+import java.util.List;
 
 public class Robolium {
     private static PircBotX bot;
@@ -43,6 +44,8 @@ public class Robolium {
             System.out.println("[ERROR] Server could not be found");
             ex.printStackTrace();
         } // end try/catch
-        bot.joinChannel(configHandler.getChannel());
+        for (String channel : configHandler.getChannels()) {
+            bot.joinChannel(channel);
+        } // end for
     } // end main
 } // end class
