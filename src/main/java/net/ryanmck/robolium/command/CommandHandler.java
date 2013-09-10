@@ -33,6 +33,16 @@ public class CommandHandler extends ListenerAdapter {
             args = parseArgs(event.getMessage());
             sender = event.getUser().getNick();
 
+// This is some testing code just to make sure everything works properly with command parsing
+
+//            String argsString = null;
+//            for (String arg : args) {
+//                if (argsString == null) argsString = arg;
+//                else argsString = argsString + " " + arg;
+//            }
+//            if (argsString == null) argsString = "none";
+//            Robolium.getBot().sendMessage(event.getChannel(), "Command \"" + command + "\" run by " + sender + ". Args: " + argsString);
+
             for (CommandListener cl : listeners) {
                 cl.onCommand(new CommandEvent(command, args, sender));
             } // end for
@@ -41,13 +51,13 @@ public class CommandHandler extends ListenerAdapter {
 
     String parseCommand(String message) {
         if (message.startsWith(commandPrefix)) {
-            return message.split(" ")[0].substring(1);
+            return message.split("\\s+")[0].substring(1);
         } // end if
-        return message.split(" ")[1];
+        return message.split("\\s+")[1];
     } // end parsecommand
 
     String[] parseArgs(String message) {
-        String[] split = message.split(" ");
+        String[] split = message.split("\\s+");
         String[] args;
         if (message.startsWith(commandPrefix)) {
             args = new String[split.length - 1];
