@@ -1,7 +1,8 @@
 package net.ryanmck.robolium.config;
 
-import java.util.Properties;
+import org.yaml.snakeyaml.Yaml;
 import java.io.FileInputStream;
+import java.util.Map;
 
 public class ConfigHandler {
     private String nick;
@@ -9,19 +10,20 @@ public class ConfigHandler {
     private String server;
     private String channel;
     private String commandPrefix;
-    private Properties properties;
+    private Yaml yaml;
 
     public ConfigHandler() throws Exception {
-        properties = new Properties();
-        properties.load(new FileInputStream("config.properties"));
+        yaml = new Yaml();
+        readConfig();
     } // end constructor
 
     public void readConfig() throws Exception {
-        nick = properties.getProperty("nick");
-        user = properties.getProperty("user");
-        server = properties.getProperty("server");
-        channel = properties.getProperty("channel");
-        commandPrefix = properties.getProperty("command_prefix");
+        Map<String, Object> map = (Map<String, Object>) yaml.load(new FileInputStream("config.yml"));
+        nick = (String) map.get("nick");
+        user = (String) map.get("user");
+        server = (String) map.get("server");
+        channel = (String) map.get("channel");
+        commandPrefix = (String) map.get("command_prefix");
     } // end readConfig
 
     public String getNick() {

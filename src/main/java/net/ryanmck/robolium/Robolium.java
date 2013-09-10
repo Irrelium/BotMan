@@ -27,7 +27,6 @@ public class Robolium {
     public static void main(String[] args) throws Exception {
         bot = new PircBotX();
         configHandler = new ConfigHandler();
-        configHandler.readConfig();
         commandHandler = new CommandHandler();
 
         bot.getListenerManager().addListener(commandHandler);
