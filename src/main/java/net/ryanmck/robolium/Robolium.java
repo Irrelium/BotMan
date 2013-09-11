@@ -26,7 +26,7 @@ public class Robolium {
         boolean resetConfig = false;
 
         for (String arg : args) {
-            if (arg == "--reset-config") resetConfig = true;
+            if (arg.equals("--reset-config")) resetConfig = true;
         } // end for
 
         configHandler = new ConfigHandler(resetConfig);

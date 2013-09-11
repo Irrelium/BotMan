@@ -1,0 +1,10 @@
+irc_settings:
+  nick: 'Robolium'
+  user: 'Robolium'
+  server: 'irc.quakenet.org'
+  channels:
+  - '#robolium'
+
+bot_settings:
+  verbose: true
+  command_prefix: ','
