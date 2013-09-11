@@ -4,7 +4,6 @@ import net.ryanmck.robolium.config.ConfigHandler;
 import net.ryanmck.robolium.event.CommandEvent;
 import net.ryanmck.robolium.listener.CommandListener;
 import net.ryanmck.robolium.Robolium;
-import org.pircbotx.hooks.Event;
 import org.pircbotx.hooks.events.MessageEvent;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.PircBotX;
@@ -40,7 +39,7 @@ public class CommandHandler extends ListenerAdapter {
                 else argsString = argsString + " " + arg;
             }
             if (argsString == null) argsString = "none";
-            Robolium.getBot().sendMessage(event.getChannel(), "Command \"" + command + "\" run by " + event.getUser().getHostmask() + ". Args: " + argsString);
+            Robolium.getBot().sendIRC().message(event.getChannel().getName(), "Command \"" + command + "\" run by " + event.getUser().getHostmask() + ". Args: " + argsString);
 
             for (CommandListener cl : listeners) {
                 cl.onCommand(new CommandEvent(command, args, sender));

@@ -2,9 +2,8 @@ package net.ryanmck.robolium;
 
 import net.ryanmck.robolium.command.CommandHandler;
 import net.ryanmck.robolium.config.ConfigHandler;
-import org.pircbotx.exception.IrcException;
+import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
-import java.io.IOException;
 
 public class Robolium {
     private static PircBotX bot;
@@ -30,24 +29,25 @@ public class Robolium {
             if (arg == "--reset-config") resetConfig = true;
         } // end for
 
-        bot = new PircBotX();
         configHandler = new ConfigHandler(resetConfig);
         commandHandler = new CommandHandler();
 
-        bot.getListenerManager().addListener(commandHandler);
 
-        bot.setName(configHandler.getNick());
-        bot.setLogin(configHandler.getUser());
-        bot.setVerbose(configHandler.getVerbose());
-        try {
-            bot.connect(configHandler.getServer());
-        } catch (IrcException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } // end try/catch
+        Configuration.Builder building = new Configuration.Builder()
+            .addListener(commandHandler)
+            .setName(configHandler.getNick())
+            .setLogin(configHandler.getUser())
+            .setServerHostname(configHandler.getServer());
         for (String channel : configHandler.getChannels()) {
-            bot.joinChannel(channel);
+            building.addAutoJoinChannel(channel);
         } // end for
+        Configuration configuration = building.buildConfiguration();
+        building = null;
+        bot = new PircBotX(configuration);
+        try {
+            bot.startBot();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     } // end main
 } // end class
