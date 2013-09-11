@@ -34,9 +34,11 @@ public class ConfigHandler {
         Map<String, Object> ircSettings = new HashMap<String, Object>();
         Map<String, Object> botSettings = new HashMap<String, Object>();
 
-        try {
-            settings = (Map<String, Object>) yaml.load(new FileInputStream("config.yml"));
+        try (InputStream config = new FileInputStream("config.yml")) {
+            settings = (Map<String, Object>) yaml.load(config);
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         } // end try/catch
 
@@ -53,9 +55,7 @@ public class ConfigHandler {
     } // end readConfig
 
     public void resetConfig() {
-        try {
-            InputStream resource = this.getClass().getResourceAsStream("/config.yml");
-            OutputStream out = new FileOutputStream("config.yml");
+        try (InputStream resource = this.getClass().getResourceAsStream("/config.yml"); OutputStream out = new FileOutputStream("config.yml");){
             byte[] buffer = new byte[4096];
             int read;
             while ((read = resource.read(buffer)) != -1) {
