@@ -2,6 +2,7 @@ package net.ryanmck.robolium;
 
 import net.ryanmck.robolium.command.CommandHandler;
 import net.ryanmck.robolium.config.ConfigHandler;
+import net.ryanmck.robolium.tempplugins.MorseTranslator;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 
@@ -35,6 +36,7 @@ public class Robolium {
 
         Configuration.Builder building = new Configuration.Builder()
             .addListener(commandHandler)
+            .addListener(new MorseTranslator())
             .setName(configHandler.getNick())
             .setLogin(configHandler.getUser())
             .setServerHostname(configHandler.getServer());
