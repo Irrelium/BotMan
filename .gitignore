@@ -1,3 +1,7 @@
+# IDEA Things
+/.idea
+*.iml
+
 # Eclipse Things
 /.classpath
 /.project
@@ -8,6 +12,3 @@
 *.jar
 /bin
 /target
-
-# Misc
-dependency-reduced-pom.xml
