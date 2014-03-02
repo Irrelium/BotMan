@@ -55,7 +55,8 @@ public class ConfigHandler {
     } // end readConfig
 
     public void resetConfig() {
-        try (InputStream resource = this.getClass().getResourceAsStream("/config.yml"); OutputStream out = new FileOutputStream("config.yml");){
+        try (InputStream resource = this.getClass().getResourceAsStream("/config.yml");
+                OutputStream out = new FileOutputStream("config.yml");){
             byte[] buffer = new byte[4096];
             int read;
             while ((read = resource.read(buffer)) != -1) {
