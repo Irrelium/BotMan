@@ -1,6 +1,6 @@
-package net.ryanmck.botman.plugin;
+package net.irrelium.botman.plugin;
 
-import net.ryanmck.botman.BotMan;
+import net.irrelium.botman.BotMan;
 import org.pircbotx.PircBotX;
 
 public abstract class Plugin {

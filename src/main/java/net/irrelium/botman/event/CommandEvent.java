@@ -1,4 +1,4 @@
-package net.ryanmck.botman.event;
+package net.irrelium.botman.event;
 
 public class CommandEvent {
     String command;

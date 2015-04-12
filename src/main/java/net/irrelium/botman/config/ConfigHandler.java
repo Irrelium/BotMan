@@ -1,4 +1,4 @@
-package net.ryanmck.botman.config;
+package net.irrelium.botman.config;
 
 import org.yaml.snakeyaml.Yaml;
 import java.io.File;

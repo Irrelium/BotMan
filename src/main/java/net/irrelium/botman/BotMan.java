@@ -1,7 +1,7 @@
-package net.ryanmck.botman;
+package net.irrelium.botman;
 
-import net.ryanmck.botman.command.CommandHandler;
-import net.ryanmck.botman.config.ConfigHandler;
+import net.irrelium.botman.config.ConfigHandler;
+import net.irrelium.botman.command.CommandHandler;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 

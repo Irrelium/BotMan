@@ -1,8 +1,8 @@
-package net.ryanmck.botman.command;
+package net.irrelium.botman.command;
 
-import net.ryanmck.botman.BotMan;
-import net.ryanmck.botman.event.CommandEvent;
-import net.ryanmck.botman.listener.CommandListener;
+import net.irrelium.botman.BotMan;
+import net.irrelium.botman.event.CommandEvent;
+import net.irrelium.botman.listener.CommandListener;
 import org.pircbotx.hooks.events.MessageEvent;
 import org.pircbotx.hooks.ListenerAdapter;
 

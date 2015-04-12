@@ -1,6 +1,6 @@
-package net.ryanmck.botman.listener;
+package net.irrelium.botman.listener;
 
-import net.ryanmck.botman.event.CommandEvent;
+import net.irrelium.botman.event.CommandEvent;
 
 public interface CommandListener {
     public abstract void onCommand(CommandEvent event);
