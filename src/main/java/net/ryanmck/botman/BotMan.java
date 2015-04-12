@@ -1,11 +1,11 @@
-package net.ryanmck.robolium;
+package net.ryanmck.botman;
 
-import net.ryanmck.robolium.command.CommandHandler;
-import net.ryanmck.robolium.config.ConfigHandler;
+import net.ryanmck.botman.command.CommandHandler;
+import net.ryanmck.botman.config.ConfigHandler;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 
-public class Robolium {
+public class BotMan {
     private static PircBotX bot;
     private static CommandHandler commandHandler;
     private static ConfigHandler configHandler;

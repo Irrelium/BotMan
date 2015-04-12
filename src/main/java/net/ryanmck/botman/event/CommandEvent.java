@@ -1,4 +1,4 @@
-package net.ryanmck.robolium.event;
+package net.ryanmck.botman.event;
 
 public class CommandEvent {
     String command;

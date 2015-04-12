@@ -1,12 +1,11 @@
-package net.ryanmck.robolium.command;
+package net.ryanmck.botman.command;
 
-import net.ryanmck.robolium.config.ConfigHandler;
-import net.ryanmck.robolium.event.CommandEvent;
-import net.ryanmck.robolium.listener.CommandListener;
-import net.ryanmck.robolium.Robolium;
+import net.ryanmck.botman.BotMan;
+import net.ryanmck.botman.event.CommandEvent;
+import net.ryanmck.botman.listener.CommandListener;
 import org.pircbotx.hooks.events.MessageEvent;
 import org.pircbotx.hooks.ListenerAdapter;
-import org.pircbotx.PircBotX;
+
 import java.util.ArrayList;
 
 public class CommandHandler extends ListenerAdapter {
@@ -14,7 +13,7 @@ public class CommandHandler extends ListenerAdapter {
     ArrayList<CommandListener> listeners = new ArrayList<CommandListener>();
 
     public CommandHandler() {
-        commandPrefix = Robolium.getConfigHandler().getCommandPrefix();
+        commandPrefix = BotMan.getConfigHandler().getCommandPrefix();
     } // end constructor
 
     public void addCommandListener(CommandListener cl) {
@@ -26,7 +25,7 @@ public class CommandHandler extends ListenerAdapter {
         String[] args;
         String sender;
 
-        if (event.getMessage().startsWith(commandPrefix) || event.getMessage().startsWith(Robolium.getBot().getNick())) {
+        if (event.getMessage().startsWith(commandPrefix) || event.getMessage().startsWith(BotMan.getBot().getNick())) {
             command = parseCommand(event.getMessage());
             args = parseArgs(event.getMessage());
             sender = event.getUser().getNick();
@@ -39,7 +38,7 @@ public class CommandHandler extends ListenerAdapter {
                 else argsString = argsString + " " + arg;
             }
             if (argsString == null) argsString = "none";
-            Robolium.getBot().sendIRC().message(event.getChannel().getName(), "Command \"" + command + "\" run by " + event.getUser().getHostmask() + ". Args: " + argsString);
+            BotMan.getBot().sendIRC().message(event.getChannel().getName(), "Command \"" + command + "\" run by " + event.getUser().getHostmask() + ". Args: " + argsString);
 
             for (CommandListener cl : listeners) {
                 cl.onCommand(new CommandEvent(command, args, sender));

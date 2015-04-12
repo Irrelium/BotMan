@@ -1,6 +1,6 @@
-package net.ryanmck.robolium.listener;
+package net.ryanmck.botman.listener;
 
-import net.ryanmck.robolium.event.CommandEvent;
+import net.ryanmck.botman.event.CommandEvent;
 
 public interface CommandListener {
     public abstract void onCommand(CommandEvent event);

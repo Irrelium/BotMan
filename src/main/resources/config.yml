@@ -1,9 +1,9 @@
 irc_settings:
-  nick: 'Robolium'
-  user: 'Robolium'
+  nick: 'BotMan'
+  user: 'BotMan'
   server: 'irc.quakenet.org'
   channels:
-  - '#robolium'
+  - '#botman'
 
 bot_settings:
   verbose: true

@@ -1,4 +1,4 @@
-package net.ryanmck.robolium.config;
+package net.ryanmck.botman.config;
 
 import org.yaml.snakeyaml.Yaml;
 import java.io.File;
